@@ -1,0 +1,24 @@
+header{
+    height: 10%;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 110px;
+}
+
+.modal{
+    width: 50%;
+    height: 10%;
+    overflow: auto;
+}
+.modal-content{
+    margin: 5% auto;
+    padding: 0px;
+}
+
+#donutClick img{
+    height: 50px;
+}
+
+#donutCount img{
+    height: 15px;
+}

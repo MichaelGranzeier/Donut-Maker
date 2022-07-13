@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="style.css">
+    <title>DonutMaker</title>
+</head>
+<body>
+    <header>
+        <button id="aboutUs">About us</button>
+
+        <div id="usModal" class="modal">
+        
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal1..</p>
+          </div>
+        </div>
+
+        <button id="aboutMe">About me</button>
+
+        <div id="meModal" class="modal">
+        
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal2..</p>
+          </div>
+        </div>
+        
+    </header>
+        <main>
+            <p>Autoclickers: <a id="autoCount">0</a></p>
+            <button id="autoClick" onclick="AddAuto()">Buy Autoclicker<br>Cost: <a id="autoCost">100</a></button>
+            <p>Multipier: <a id="multiCount">0</a></p>
+            <button id="multiClick" onclick="AddMulti()">Add Multipier<br>Cost: <a id="multiCost">100</a></button>
+            <p>Donuts: <a id="donutCount">0</a></p>
+            <button id="donutClick" onclick="AddDonut()"><img src="/docs/images/Donut.png" alt="a donut"></button>
+        </main>
+    <footer>
+    
+    </footer>
+    <script src="DonutMaker.js"></script>
+</body>
+</html>

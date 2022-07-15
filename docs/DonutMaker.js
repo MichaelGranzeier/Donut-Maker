@@ -4,6 +4,10 @@ let multi = 0;
 let autoCost = 100;
 let multiCost = 100;
 let multiDonut = 1;
+let i = 0;
+let j = 0;
+let k = 0;
+let l = 0;
 
 function AddDonut() {
     if(multi > 0){
@@ -12,7 +16,7 @@ function AddDonut() {
     else{
         donut++;
     }
-    document.getElementById("donutCount").innerHTML = donut;
+    update();
   };
 
 function AddAuto() {
@@ -20,17 +24,14 @@ function AddAuto() {
         donut -= autoCost;
         auto++;
         autoCost += (autoCost * .1);
-    }
-    setInterval(autoClick, 1000/auto)
-    function autoClick(){
-        donut +=multiDonut;
-        console.log(donut)
-        document.getElementById("donutCount").innerHTML = donut;
+        setInterval(autoClick, 1000/auto)
+        function autoClick(){
+            donut +=multiDonut;
+            update();
+        };
     };
-    document.getElementById("autoCount").innerHTML = auto;
-    document.getElementById("autoCost").innerHTML = autoCost;
-    document.getElementById("donutCount").innerHTML = donut;
-    };
+  update();
+};
 
 
 
@@ -41,18 +42,26 @@ function AddMulti() {
         multi++;
         multiCost += (multiCost * .2);
         multiDonut += (multiDonut * .2);
-    }
-    document.getElementById("multiCount").innerHTML = multi;
-    document.getElementById("multiCost").innerHTML = multiCost;
-    document.getElementById("donutCount").innerHTML = donut;
     };
+  update();
+};
+
+function update(){
+  document.getElementById("autoCount").innerHTML = auto;
+  document.getElementById("autoCost").innerHTML = autoCost.toFixed(2);
+  document.getElementById("multiCount").innerHTML = multi;
+  document.getElementById("multiCost").innerHTML = multiCost.toFixed(2);
+  document.getElementById("donutCount").innerHTML = donut.toFixed(2);
+  document.title = donut.toFixed() + " Donuts-Donut Maker";
+};
 
 //modals 1
 
-const modalOne = document.getElementById("usModal");
+const modalOne = document.getElementById("aboutModal");
+modalOne.style.display = "none";
 
 // Get the button that opens the modal
-const btnOne = document.getElementById("aboutUs");
+const btnOne = document.getElementById("about");
 
 // Get the <span> element that closes the modal
 const spanOne = document.getElementsByClassName("close")[0];
@@ -60,6 +69,9 @@ const spanOne = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal
 btnOne.onclick = function() {
   modalOne.style.display = "block";
+  modalTwo.style.display = "none";
+  modalThree.style.display = "none";
+  modalFour.style.display = "none";
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -69,10 +81,11 @@ spanOne.onclick = function() {
 
 //modals 2
 
-const modalTwo = document.getElementById("meModal");
+const modalTwo = document.getElementById("contactModal");
+modalTwo.style.display = "none";
 
 // Get the button that opens the modal
-const btnTwo = document.getElementById("aboutMe");
+const btnTwo = document.getElementById("contact");
 
 // Get the <span> element that closes the modal
 const spanTwo = document.getElementsByClassName("close")[1];
@@ -80,9 +93,166 @@ const spanTwo = document.getElementsByClassName("close")[1];
 // When the user clicks on the button, open the modal
 btnTwo.onclick = function() {
   modalTwo.style.display = "block";
+  modalOne.style.display = "none";
+  modalThree.style.display = "none";
+  modalFour.style.display = "none";
 }
 
 // When the user clicks on <span> (x), close the modal
 spanTwo.onclick = function() {
   modalTwo.style.display = "none";
+}
+
+//modals 3
+
+const modalThree = document.getElementById("inspirationModal");
+modalThree.style.display = "none";
+
+// Get the button that opens the modal
+const btnThree = document.getElementById("inspiration");
+
+// Get the <span> element that closes the modal
+const spanThree = document.getElementsByClassName("close")[2];
+
+// When the user clicks on the button, open the modal
+btnThree.onclick = function() {
+  modalThree.style.display = "block";
+  modalOne.style.display = "none";
+  modalTwo.style.display = "none";
+  modalFour.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanThree.onclick = function() {
+  modalThree.style.display = "none";
+}
+
+//modals 4
+
+const modalFour = document.getElementById("shopModal");
+modalFour.style.display = "none";
+
+// Get the button that opens the modal
+const btnFour = document.getElementById("shop");
+
+// Get the <span> element that closes the modal
+const spanFour = document.getElementsByClassName("close")[3];
+
+// When the user clicks on the button, open the modal
+btnFour.onclick = function() {
+  modalFour.style.display = "block";
+  modalOne.style.display = "none";
+  modalTwo.style.display = "none";
+  modalThree.style.display = "none";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanFour.onclick = function() {
+  modalFour.style.display = "none";
+}
+
+//Change background
+
+function bg1(){
+  document.body.style.background = "url('/docs/images/Bg1.jpg') repeat";
+}
+
+function bg2(){
+  if(i < 1){
+    if(donut >= 100){
+    donut -=100;
+    document.body.style.background = "url('/docs/images/Bg2.jpg') repeat";
+    i++;
+    };
+  }
+  else{
+    document.body.style.background = "url('/docs/images/Bg2.jpg') repeat";
+  };
+  update();
+}
+
+function bg3(){
+  if(j < 1){
+    if(donut >= 100){
+    donut -=100;
+    document.body.style.background = "url('/docs/images/Bg3.jpg') repeat";
+    j++;
+    };
+  }
+  else{
+    document.body.style.background = "url('/docs/images/Bg3.jpg') repeat";
+  };
+  update();
+}
+
+//Change header background
+
+let headerbg = document.getElementById("header")
+
+function hdBg1(){
+  headerbg.style.background = "url('/docs/images/hdBg1.jpg') repeat";
+}
+
+function hdBg2(){
+  if(k < 1){
+    if(donut >= 50){
+    donut -=50;
+    headerbg.style.background = "url('/docs/images/hdBg2.jpg') repeat";
+    k++;
+    };
+  }
+  else{
+    headerbg.style.background = "url('/docs/images/hdBg2.jpg') repeat";
+  };
+  update();
+}
+
+function hdBg3(){
+  if(l < 1){
+    if(donut >= 50){
+    donut -=50;
+    headerbg.style.background = "url('/docs/images/hdBg3.jpg') repeat";
+    l++;
+    };
+  }
+  else{
+    headerbg.style.background = "url('/docs/images/hdBg3.jpg') repeat";
+  };
+  update();
+}
+
+//Change donut
+
+let dnimg = document.getElementById("donut")
+
+function dn1(){
+  document.getElementById('donut').src='/docs/images/Donut1.png';
+}
+
+function dn2(){
+  if(k < 1){
+    if(donut >= 200){
+    donut -=200;
+    document.getElementById('donut').src='/docs/images/Donut2.png';
+    k++;
+    };
+  }
+  else{
+    document.getElementById('donut').src='/docs/images/Donut2.png';
+  };
+  update();
+}
+
+function dn3(){
+  if(l < 1){
+    if(donut >= 200){
+    donut -=200;
+    document.getElementById('donut').src='/docs/images/Donut3.png';
+    l++;
+    };
+  }
+  else{
+    document.getElementById('donut').src='/docs/images/Donut3.png';
+  };
+  update();
 }

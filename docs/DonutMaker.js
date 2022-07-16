@@ -8,6 +8,8 @@ let i = 0;
 let j = 0;
 let k = 0;
 let l = 0;
+let hightScore = 0;
+let inter;
 
 function AddDonut() {
     if(multi > 0){
@@ -24,7 +26,7 @@ function AddAuto() {
         donut -= autoCost;
         auto++;
         autoCost += (autoCost * .1);
-        setInterval(autoClick, 1000/auto)
+        inter = setInterval(autoClick, 1000/auto)
         function autoClick(){
             donut +=multiDonut;
             update();
@@ -46,7 +48,27 @@ function AddMulti() {
   update();
 };
 
+function reset(){
+  if(donut > hightScore){
+    hightScore = donut;
+    update();
+  }
+  clearInterval(inter);
+  donut = 0;
+  auto = 0;
+  multi = 0;
+  autoCost = 100;
+  multiCost = 100;
+  multiDonut = 1;
+  i = 0;
+  j = 0;
+  k = 0;
+  l = 0;
+  update();
+};
+
 function update(){
+  document.getElementById("hSNum").innerHTML = hightScore.toFixed();
   document.getElementById("autoCount").innerHTML = auto;
   document.getElementById("autoCost").innerHTML = autoCost.toFixed(2);
   document.getElementById("multiCount").innerHTML = multi;

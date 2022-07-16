@@ -72,21 +72,22 @@
         
     </header>
         <main>
+          <h1 class="hS">High Score: <a id="hSNum">0</a></h1>
             <section id="mainBtns">
                 <p class="counts">Donut:</p>
                 <p class="counts">Autoclicker:</p>
                 <p class="counts">Multipier:</p>
-                <a class="counts" id="donutCount">0</a>
+                <a class="counts" id="donutCount">0.00</a>
                 <a class="counts" id="autoCount">0</a>
                 <a class="counts" id="multiCount">0</a>
                 <button id="donutClick" onclick="AddDonut()"><img id="donut" src="/docs/images/Donut1.png" alt="a donut"></button>
-                <button id="autoClick" onclick="AddAuto()">Autoclicker<br>Cost: <a id="autoCost">100</a></button>
-                <button id="multiClick" onclick="AddMulti()">Multipier<br>Cost: <a id="multiCost">100</a></button>
+                <button id="autoClick" onclick="AddAuto()">Autoclicker<br>Cost: <a id="autoCost">100.00</a></button>
+                <button id="multiClick" onclick="AddMulti()">Multipier<br>Cost: <a id="multiCost">100.00</a></button>
             </section>
             
         </main>
     <footer>
-        <button onClick="window.location.reload();">Reset</button>
+        <button onclick="reset()">Reset</button>
     </footer>
     <script src="DonutMaker.js"></script>
 </body>
